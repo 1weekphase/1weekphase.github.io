@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1weekphase | Minecraft Modpack Repository</title>
+    <meta name="description" content="Download and share the best Minecraft modpacks.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        mcgreen: {
+                            400: '#5fcd66',
+                            500: '#46a34b',
+                            600: '#3a853e',
+                        },
+                        mcdark: '#121212',
+                        mccard: '#1e1e1e',
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e2e8f0;
+        }
+        
+        .grass-bg {
+            background: linear-gradient(180deg, rgba(18,18,18,0) 0%, #121212 100%),
+                        url('https://images.unsplash.com/photo-1599587428807-6b47c430e386?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121212;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #46a34b;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(70, 163, 75, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-mcgreen-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-mcdark/90 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-8 h-8 bg-gradient-to-br from-mcgreen-400 to-mcgreen-600 rounded flex items-center justify-center text-white font-bold border-2 border-white/10 shadow-[0_4px_0_rgb(30,100,30)]">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-white">1week<span class="text-mcgreen-400">phase</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#browse" class="text-gray-300 hover:text-white hover:underline decoration-mcgreen-500 underline-offset-4 transition-all font-medium">Browse Packs</a>
+                    <a href="#how-it-works" class="text-gray-300 hover:text-white transition-colors font-medium">How it Works</a>
+                    <button onclick="openUploadModal()" class="bg-mcgreen-600 hover:bg-mcgreen-500 text-white px-5 py-2 rounded font-bold transition-all shadow-[0_4px_0_rgb(30,80,30)] hover:shadow-[0_2px_0_rgb(30,80,30)] hover:translate-y-[2px] active:shadow-none active:translate-y-[4px]">
+                        <i class="fas fa-upload mr-2"></i> Submit Modpack
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-mccard border-t border-gray-800 absolute w-full shadow-2xl">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#browse" class="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">Browse Packs</a>
+                <button onclick="openUploadModal()" class="w-full text-left block px-3 py-3 text-base font-medium text-mcgreen-400 hover:text-mcgreen-300 hover:bg-white/5 rounded-md">
+                    Submit Modpack
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden grass-bg min-h-[80vh] flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <div class="inline-flex items-center px-4 py-2 rounded border border-gray-700 bg-black/50 backdrop-blur text-gray-300 text-sm font-medium mb-8">
+                <span class="flex h-2 w-2 rounded-full bg-mcgreen-500 mr-2 animate-pulse"></span>
+                Over 5,000+ Modpacks Available
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-black text-white tracking-tight mb-6 drop-shadow-2xl">
+                Craft Your <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-mcgreen-400 to-emerald-600">Perfect Adventure</span>
+            </h1>
+            
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-300 mb-10 drop-shadow-md">
+                The community-driven library for Minecraft modpacks. <br class="hidden md:block">Upload your creations or discover new worlds today.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#browse" class="w-full sm:w-auto px-8 py-4 bg-white text-black hover:bg-gray-200 rounded font-bold text-lg shadow-[0_4px_0_#999] hover:shadow-[0_2px_0_#999] hover:translate-y-[2px] transition-all flex items-center justify-center gap-2">
+                    <i class="fas fa-compass"></i> Explore Packs
+                </a>
+                <button onclick="openUploadModal()" class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-gray-500 hover:border-white text-gray-300 hover:text-white rounded font-bold text-lg transition-all flex items-center justify-center gap-2">
+                    <i class="fas fa-cloud-upload-alt"></i> Upload Yours
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-8 max-w-4xl mx-auto">
+                <div>
+                    <div class="text-3xl font-bold text-white">1.2M+</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wider">Downloads</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-white">850+</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wider">Creators</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-white">100%</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wider">Free</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-white">24/7</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wider">Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Bar -->
+    <div class="sticky top-16 z-40 bg-[#121212] border-b border-gray-800 py-4 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="relative flex-grow">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-gray-500"></i>
+                    </div>
+                    <input type="text" id="searchInput" onkeyup="filterPacks()" class="block w-full pl-10 pr-3 py-3 border border-gray-700 rounded bg-[#1e1e1e] text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-mcgreen-500 focus:border-transparent sm:text-sm" placeholder="Search modpacks (e.g. 'Skyblock', 'Tech')...">
+                </div>
+                <div class="flex gap-2">
+                    <select id="versionFilter" onchange="filterPacks()" class="bg-[#1e1e1e] border border-gray-700 text-gray-300 text-sm rounded focus:ring-mcgreen-500 focus:border-mcgreen-500 block w-full p-2.5">
+                        <option value="all">All Versions</option>
+                        <option value="1.20">1.20.x</option>
+                        <option value="1.19">1.19.x</option>
+                        <option value="1.18">1.18.x</option>
+                        <option value="1.16">1.16.5</option>
+                        <option value="1.12">1.12.2</option>
+                    </select>
+                    <select id="categoryFilter" onchange="filterPacks()" class="bg-[#1e1e1e] border border-gray-700 text-gray-300 text-sm rounded focus:ring-mcgreen-500 focus:border-mcgreen-500 block w-full p-2.5">
+                        <option value="all">All Categories</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="tech">Tech</option>
+                        <option value="magic">Magic</option>
+                        <option value="hardcore">Hardcore</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modpack Grid Section -->
+    <section id="browse" class="py-12 bg-[#121212]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-8">
+                <h2 class="text-3xl font-bold text-white">Trending Modpacks</h2>
+            </div>
+            
+            <div id="modpack-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Javascript will populate this -->
+            </div>
+            
+            <div id="no-results" class="hidden text-center py-20">
+                <i class="fas fa-ghost text-6xl text-gray-700 mb-4"></i>
+                <h3 class="text-xl text-gray-400">No modpacks found.</h3>
+                <p class="text-gray-600">Try adjusting your search terms.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="fixed inset-0 z-[100] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-black bg-opacity-80 transition-opacity" aria-hidden="true" onclick="closeUploadModal()"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <div class="inline-block align-bottom bg-[#1e1e1e] border border-gray-700 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full">
+                <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="flex justify-between items-center mb-5">
+                        <h3 class="text-lg leading-6 font-bold text-white" id="modal-title">Upload New Modpack</h3>
+                        <button onclick="closeUploadModal()" class="text-gray-400 hover:text-white"><i class="fas fa-times"></i></button>
+                    </div>
+                    
+                    <form id="uploadForm" onsubmit="handleUpload(event)">
+                        <div class="space-y-4">
+                            <div>
+                                <label for="packName" class="block text-sm font-medium text-gray-400">Modpack Name</label>
+                                <input type="text" id="packName" required class="mt-1 block w-full bg-[#121212] border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-mcgreen-500 focus:border-mcgreen-500 sm:text-sm">
+                            </div>
+
+                            <div>
+                                <label for="packAuthor" class="block text-sm font-medium text-gray-400">Author</label>
+                                <input type="text" id="packAuthor" required class="mt-1 block w-full bg-[#121212] border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-mcgreen-500 focus:border-mcgreen-500 sm:text-sm">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="packVersion" class="block text-sm font-medium text-gray-400">MC Version</label>
+                                    <select id="packVersion" class="mt-1 block w-full bg-[#121212] border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-mcgreen-500 focus:border-mcgreen-500 sm:text-sm">
+                                        <option>1.20.1</option>
+                                        <option>1.19.2</option>
+                                        <option>1.18.2</option>
+                                        <option>1.16.5</option>
+                                        <option>1.12.2</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="packCategory" class="block text-sm font-medium text-gray-400">Category</label>
+                                    <select id="packCategory" class="mt-1 block w-full bg-[#121212] border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-mcgreen-500 focus:border-mcgreen-500 sm:text-sm">
+                                        <option value="adventure">Adventure</option>
+                                        <option value="tech">Tech</option>
+                                        <option value="magic">Magic</option>
+                                        <option value="hardcore">Hardcore</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="packDescription" class="block text-sm font-medium text-gray-400">Description</label>
+                                <textarea id="packDescription" rows="3" required class="mt-1 block w-full bg-[#121212] border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-mcgreen-500 focus:border-mcgreen-500 sm:text-sm"></textarea>
+                            </div>
+                            
+                            <!-- Mock File Upload -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400">Modpack File (.zip)</label>
+                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-600 border-dashed rounded-md hover:border-mcgreen-500 transition-colors cursor-pointer group">
+                                    <div class="space-y-1 text-center">
+                                        <i class="fas fa-file-archive text-gray-400 text-3xl group-hover:text-mcgreen-400 transition-colors"></i>
+                                        <div class="flex text-sm text-gray-400">
+                                            <span class="relative cursor-pointer rounded-md font-medium text-mcgreen-500 hover:text-mcgreen-400">
+                                                <span>Upload a file</span>
+                                                <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                            </span>
+                                            <p class="pl-1">or drag and drop</p>
+                                        </div>
+                                        <p class="text-xs text-gray-500">ZIP up to 500MB</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-mcgreen-600 text-base font-medium text-white hover:bg-mcgreen-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-mcgreen-500 sm:text-sm">
+                                Publish Modpack
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#0a0a0a] border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center gap-2 mb-4 md:mb-0">
+                    <div class="w-6 h-6 bg-mcgreen-600 rounded flex items-center justify-center text-white text-xs"><i class="fas fa-cube"></i></div>
+                    <span class="font-bold text-lg text-gray-200">1weekphase</span>
+                </div>
+                <div class="flex space-x-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white">Privacy</a>
+                    <a href="#" class="hover:text-white">Terms</a>
+                    <a href="#" class="hover:text-white">API</a>
+                    <a href="#" class="hover:text-white">Discord</a>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-xs text-gray-600">
+                Not affiliated with Mojang or Microsoft.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-gray-800 border-l-4 border-mcgreen-500 text-white px-6 py-3 rounded shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 z-[150] flex items-center gap-3">
+        <i class="fas fa-check-circle text-mcgreen-500"></i>
+        <span id="toast-msg">Notification Message</span>
+    </div>
+
+    <script>
+        // Store modpacks globally
+        let modpacks = [];
+
+        // 1. FETCH DATA FROM JSON FILE
+        async function loadModpacks() {
+            try {
+                // This looks for modpacks.json in the same folder as index.html
+                const response = await fetch('modpacks.json');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                modpacks = await response.json();
+                renderPacks(modpacks);
+                console.log("Loaded " + modpacks.length + " modpacks from database.");
+            } catch (error) {
+                console.error('Error loading modpacks:', error);
+                document.getElementById('modpack-grid').innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <i class="fas fa-exclamation-triangle text-4xl text-yellow-500 mb-4"></i>
+                        <h3 class="text-xl text-white font-bold">Could not load modpacks</h3>
+                        <p class="text-gray-400 mt-2">Please ensure <code>modpacks.json</code> exists in your repository.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Function to render cards
+        function renderPacks(packs) {
+            const grid = document.getElementById('modpack-grid');
+            const noResults = document.getElementById('no-results');
+            grid.innerHTML = '';
+
+            if (packs.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            }
+            noResults.classList.add('hidden');
+
+            packs.forEach(pack => {
+                const card = `
+                    <div class="bg-[#1e1e1e] rounded-lg overflow-hidden border border-gray-800 card-hover transition-all duration-300 flex flex-col h-full group">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="${pack.image}" alt="${pack.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100">
+                            <div class="absolute top-2 right-2 bg-black/70 backdrop-blur px-2 py-1 rounded text-xs font-bold text-white border border-white/10">
+                                ${pack.version}
+                            </div>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="text-xs font-semibold text-mcgreen-400 uppercase tracking-wide bg-mcgreen-400/10 px-2 py-1 rounded">${pack.category}</span>
+                                <div class="flex items-center text-gray-500 text-xs">
+                                    <i class="fas fa-download mr-1"></i> ${pack.downloads}
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-1 group-hover:text-mcgreen-400 transition-colors">${pack.title}</h3>
+                            <p class="text-sm text-gray-500 mb-4">by ${pack.author}</p>
+                            <p class="text-gray-400 text-sm mb-6 flex-1">${pack.desc}</p>
+                            
+                            <a href="${pack.downloadUrl || '#'}" download class="w-full bg-[#2a2a2a] hover:bg-mcgreen-600 text-gray-300 hover:text-white py-3 rounded font-bold transition-all border border-gray-700 hover:border-mcgreen-500 flex justify-center items-center gap-2 group-btn no-underline">
+                                <span>Download</span>
+                                <i class="fas fa-download text-sm group-hover:animate-bounce"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        // Filter Logic
+        function filterPacks() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const version = document.getElementById('versionFilter').value;
+            const category = document.getElementById('categoryFilter').value;
+
+            const filtered = modpacks.filter(pack => {
+                const matchesSearch = pack.title.toLowerCase().includes(search) || pack.desc.toLowerCase().includes(search);
+                const matchesVersion = version === 'all' || pack.version.includes(version.replace('x', ''));
+                const matchesCategory = category === 'all' || pack.category === category;
+                return matchesSearch && matchesVersion && matchesCategory;
+            });
+
+            renderPacks(filtered);
+        }
+
+        // Modal Logic
+        function openUploadModal() {
+            document.getElementById('uploadModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeUploadModal() {
+            document.getElementById('uploadModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Handle Upload (Simulated + Instructions)
+        function handleUpload(e) {
+            e.preventDefault();
+            
+            // Get form values for demo purposes
+            const name = document.getElementById('packName').value;
+            
+            // Close and reset
+            closeUploadModal();
+            document.getElementById('uploadForm').reset();
+            
+            // Show Instructional Toast because we can't write to files from browser
+            showToast(`To publish "${name}", add it to modpacks.json!`);
+            
+            // Optional: Log the JSON object to console so the user can copy-paste it
+            console.log("Copy this into modpacks.json:");
+            console.log(JSON.stringify({
+                id: Date.now(),
+                title: name,
+                author: document.getElementById('packAuthor').value,
+                version: document.getElementById('packVersion').value,
+                category: document.getElementById('packCategory').value,
+                desc: document.getElementById('packDescription').value,
+                downloadUrl: "modpacks/YOUR_FILE_NAME.zip"
+            }, null, 2));
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 5000);
+        }
+
+        // Mobile Menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Initialize: Load from file
+        loadModpacks();
+
+    </script>
+</body>
+</html>
